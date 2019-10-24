@@ -67,7 +67,8 @@ public class Customer
    else
    {
      throw new CustomerException("DATA VALIDATION");
-  } // end setCustLastName
+  }
+  }// end setCustLastName
   
   public final void setCustFirstName(String first)
   {
