@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 public class Customer 
 {
   
@@ -45,7 +48,7 @@ public class Customer
   public final void setCustId(String id)
     throws CustomerException
   {
-    if(id.length()==7 && id )
+    if(id.length() == 7 && id.toInt() > 10000)
     {
       custId = id;
     }
@@ -57,7 +60,7 @@ public class Customer
   
   public final void setCustLastName(String last)
   {
-   if(last)
+   if(last != "null" && last.matches("^(\\s){7}"))
    {
     custLastName = last;
    }
@@ -68,7 +71,7 @@ public class Customer
   
   public final void setCustFirstName(String first)
   {
-    if(first)
+    if(first != "null" && first.matches("^(\\s){7}"))
     {
     custFirstName = first;
     }
@@ -86,7 +89,7 @@ public class Customer
     }
     else
     {
-     throw new CustomerException("DATA VALIDATION")
+     throw new CustomerException("DATA VALIDATION");
     }
   }// end setCustTaxId
   
@@ -95,7 +98,8 @@ public class Customer
     return custId;
   } // end getCustId
   
-  public final String getCustLastName(){
+  public final String getCustLastName()
+  {
     return custLastName;
   } // end getCustLastName
   
@@ -111,4 +115,3 @@ public class Customer
   
   
 } // end Customer Class
-                                 
