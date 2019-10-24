@@ -47,8 +47,13 @@ public abstract class Policy implements BookValue//Start Policy class
     {
       String oldMsg = xcptn.getMessage();
       
-      String newMsg = String.format("This is a thing");
-      
+      String newMsg = String.format("%nOwner: %s%nInsured: %s%nNumber:"+
+                                    "%s%nPremiem: %d%n",
+                                    polOwner,
+                                    polInsured,
+                                    polNumber,
+                                    polPremium);
+ 
       throw new PolicyException( oldMsg + newMsg,   //String Msg
                                 xcptn);             //Exception cause
     }//end catch policyException
