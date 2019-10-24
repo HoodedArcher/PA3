@@ -1,140 +1,205 @@
-/**
- * HomeOwners Class
- * Homeowners is a subclass of Policy
+/*@Application(1)HomeOwners.java
+ * @Author Brandon Stevenson
+ * @Version 1.00 2019/09/18
+ * 
+ *This code is in regards to finding information on policys for annunity, homeowners, and auto insurance. 
+ * This is done utilizing inheritance, with the class Policy acting as the superclass for HomeOwners and Auto subclasses.
+ * Also a interface is used to for common abstract methods between classes. BookValue is implemented by Policy and Annuity.
+ * Test_Policy_BookValue is the test harness to test this code.
  */
-public class HomeOwners extends Policy{
+
+
+public class HomeOwners extends Policy
+{
+  //instance variables
+  private final double EXPOSURE_RATE = 0.0025;//CONSTANT VALUE representing the current exposure rate
+  private String homePropAddress;//Legal address of the insured policy
+  private int homePropType;//code describing a property type
+  private int homeStructure;//Structural coverage limit
+  private int homeContents;//Contents limit
+  private double homeDeductible;//Percentage of total insured value
+  private boolean umbrella;//Indication if the policy is covered under umbrella
   
-  // local variables
-  
-  private double EXPOSURE_RATE = 0.0025; // constant value
-  private String homePropAddress; // legal address of insured property
-  private int homePropType; 
-  /* Numeric code describing property type: 
-   * 1 - single family dwelling
-   * 2 - townhouse, attached
-   * 3 - townhouse, detached
-   * 4 - condominium
-   */
-  private int homeStructure; // Structural coverage limit, stated in thousands of dollars.
-  private int homeContents; // Contents limits, stated in thousands of dollars
-  private double homeDeductible; // Policy deductible as a percentage of total insured value (homeStructure + homeContents)
-  private boolean umbrella; // Boolean indicating if policy is tied to umbrella coverage
-  
+  //constructors
   public HomeOwners()
   {
-    super();
-  } // end null constructor
-  public HomeOwners(String own, String insd, String nbr, double prem,
-                    String addr, int type, int struct, int goods, 
-                    double ded, boolean umbr)
+    super();//Call to super null
+  }//null constructor
+  
+  public HomeOwners(String own,
+                    String insd,
+                    String nbr,
+                    double prem,
+                    String addr,
+                    int type,
+                    int struct,
+                    int goods,
+                    double ded,
+                    boolean umbr)
     throws PolicyException
   {
-    try{
-      
+    try
+    {
+    
       super.setPolOwner(own);
       super.setPolInsured(insd);
       super.setPolNumber(nbr);
       super.setPolPremium(prem);
-      
-      setHomePropAddress(addr);
-      setHomePropType(type);
-      setHomeStructure(struct);
-      setHomeContents(goods);
-      setHomeDeductible(ded);
-      setUmbrella(umbr);
-    } // end try
+      //Call to super full constructor
+    
+    setHomePropAddress(addr);
+    setHomePropType(type);
+    setHomeStructure(struct);
+    setHomeContents(goods);
+    setHomeDeductible(ded);
+    setUmbrella(umbr);
+    }//end try block
     catch(PolicyException xcptn)
     {
       String oldMsg = xcptn.getMessage();
       
-      String newMsg = String.format("fack");
+      String newMsg = String.format("%nHomePropAddress: %s%nHomePropType: %d%nHomeStructure"+
+                                    "%d%nHomeContents: %d%nHomeDeductible: %f%n: Umbrella: %s%n",
+                                    homePropAddress,
+                                    homePropType,
+                                    homeStructure,
+                                    homeContents,
+                                    homeDeductible,
+                                    umbrella);
       throw new PolicyException( oldMsg + newMsg, xcptn);
-    } // end catch block
-  } // end constructor HomeOwners
+    }//end catch block
+  }//end full constructor
   
-  // set methods
-  
-  public final void setHomePropAddress(String addr){
+  /*
+   * Set Methods for Homeowners
+   */
+  public final void setHomePropAddress(String addr)
+  {
     homePropAddress = addr;
-  } // end setHomeAddr
+  }
+  
   public final void setHomePropType(int type)
     throws PolicyException
   {
-    if(type > 0 && type < 5){
+    if(type > 0 && type < 3){
       homePropType = type;}
-    else{
+    else
       homePropType = 1;
-      throw new PolicyException("You must enter a value between 1-4, this will be set as 1");
-      
-    }
-  } // end setHomeType
-  public final void setHomeStructure(int struct){
-    homeStructure = struct;
-  } // end setHomeStructure
-  public final void setHomeContents(int goods){
-    homeContents = goods;
-  } // end setHomeGoods
-  public final void setHomeDeductible(double ded){
-    homeDeductible = ded;
-  } // end setHomeDeductible
-  public final void setUmbrella(boolean umbr){
+    throw new PolicyException("DATA VALIDATION: Only values 1-4 (inclusive) are acceptable"+
+                              ",and other value offered should be replaced with a value of 1");
+  }
+  public final void setHomeStructure(int struct)
+    throws PolicyException
+  {
+    if( struct> 50 || struct < 5000) {homeStructure = struct;}
+    
+      else
+        throw new PolicyException("DATA VALIDATION: The value offered must be greater than 50 and less than 5000 (inclusive)");
+  
+  }
+  public final void setHomeContents(int goods)
+    throws PolicyException
+  {
+    if( goods > 5 || goods < 500) {homeContents = goods;}
+    
+      else
+        throw new PolicyException("DATA VALIDATION: The value offered must be greater than 5 and less than 500 (inclusive)");
+  
+  }
+  public final void setHomeDeductible(double ded)
+    throws PolicyException
+  {
+    if( ded > 0.01 || ded < 0.10) {homeDeductible = ded;}
+    
+      else
+        throw new PolicyException("DATA VALIDATION: The value offered must be greater than 0.01 and less than 0.10 (inclusive)");
+  
+  }
+  public final void setUmbrella(boolean umbr)
+  {
     umbrella = umbr;
-  } // end setUmbrella
+  }
+//end set methods
   
-  // get methods
-  
-  public final String getHomePropAddress(){
+  /*
+   * get Methods
+   */
+  public final String getHomePropAddress()
+  {
     return homePropAddress;
-  } // end getHomeAddr
-  public final int getHomePropType(){
+  }
+  public final int getHomePropType()
+  {
     return homePropType;
-  } // end getHomeType
-  public final int getHomeStructure(){
+  }
+  public final int getHomeStructure()
+  {
     return homeStructure;
-  } // end getHomeStructure
-  public final int getHomeContents(){
+  }
+  public final int getHomeContents()
+  {
     return homeContents;
-  } // end getHomeGoods
-  public final double getHomeDeductible(){
+  }
+  public final double getHomeDeductible()
+  {
     return homeDeductible;
-  } // end getHomeDeductible
-  public final boolean getUmbrella(){
+  }
+  public final boolean getUmbrella()
+  {
     return umbrella;
-  } // end getUmbrella
+  }
+//end get methods
   
-  // other methods
+  public final double getDeductibleInDollars()//method that calculates the dollar value of the deductible
+  {
+    return (( getHomeStructure() + getHomeContents()) * 1000 * getHomeDeductible());
+  }
   
-  public double getDeductibleInDollars(){
-    return (double) ((getHomeStructure() + getHomeContents()) * 1000) * getHomeDeductible();
-  }// end getDeductibleInDollars
+  /*****************************************************************************
+    * Interface Methods
+    * **************************************************************************/
+  public double calcExposure()
+  {
+    return (getHomeStructure() + getHomeContents()) * 1000;
+  }
+  public double calcCurrentValue()
+  {
+    return getPolPremium() - (calcExposure() * EXPOSURE_RATE);
+  }
   
-  public double calcExposure(){
-    return (double) (getHomeStructure() + getHomeContents());
-  }// end calcExposure
-  
-  public double calcCurrentValue(){
-    return (double) super.getPolPremium()-(calcExposure()*EXPOSURE_RATE);
-  }// end calcCurrentValue
-  
-  public String toString(){
-    return String.format("%n%s owns Policy %s insuring %s, with a premium of %.2f." +
-                         "%nThis %s policy insures a type %d home at %s." +
-                         "The structure is insured for $%,d.00; contents for $%,d.00. The deductible is $%.2f." +
-                         "This policy %s part of an Umbrella contract.", 
-                         super.getPolOwner(),
-                         super.getPolNumber(),
-                         super.getPolInsured(),
-                         super.getPolPremium(),
-                         this.getClass(),
-                         getHomePropType(),
-                         getHomePropAddress(),
-                         getHomeStructure(),
-                         getHomeContents(),
-                         getDeductibleInDollars(),
-                         getUmbrella()
-                        );
-  }//end toString
-  
-  
-  
+  public String toString()
+  {
+    String str = String.format("%s%nThis %s policy insures type %d home at %s. The structure is insured" +
+                               " for $%,d.00; contents for $%,d.00. The deductible is $%,.2f ",
+                               super.toString(),
+                               getClass().getSimpleName(),
+                               getHomePropType(),
+                               getHomePropAddress(),
+                               getHomeStructure()*1000,
+                               getHomeContents()*1000,
+                               getDeductibleInDollars());
+    if (getUmbrella())
+    {
+      str += "This policy is part of an Umbrella contract.";
+    }
+    else
+    {
+      str += "This policy is not part of an Umbrella contract.";
+    }
+    return str;                     
+  }
 }
+
+
+
+
+                        
+                         
+                         
+    
+    
+    
+    
+    
+    
+    
