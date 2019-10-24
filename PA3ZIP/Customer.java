@@ -1,6 +1,3 @@
-/**
- * 
- */
 public class Customer 
 {
   
@@ -48,27 +45,53 @@ public class Customer
   public final void setCustId(String id)
     throws CustomerException
   {
-    if(id.length()==7){
-      custId = id;}
+    if(id.length()==7 && id )
+    {
+      custId = id;
+    }
     else
     {
-      throw new CustomerException("The id provided is over 7 digits");
+      throw new CustomerException("DATA VALIDATION: The id provided is over 7 digits");
     }
   } // end setCustId
   
-  public final void setCustLastName(String last){
+  public final void setCustLastName(String last)
+  {
+   if(last)
+   {
     custLastName = last;
+   }
+   else
+   {
+     throw new CustomerException("DATA VALIDATION");
   } // end setCustLastName
   
-  public final void setCustFirstName(String first){
+  public final void setCustFirstName(String first)
+  {
+    if(first)
+    {
     custFirstName = first;
+    }
+    else
+    {
+      throw new CustomerException("DATA VALIDATION");
+  }
   }// end setCustFirstName
   
-  public final void setCustTaxId(String tax){
+  public final void setCustTaxId(String tax)
+  {
+    if(tax)
+    {
     custTaxId = tax;
+    }
+    else
+    {
+     throw new CustomerException("DATA VALIDATION" 
+    }
   }// end setCustTaxId
   
-  public final String getCustId(){
+  public final String getCustId()
+  {
     return custId;
   } // end getCustId
   
@@ -76,13 +99,16 @@ public class Customer
     return custLastName;
   } // end getCustLastName
   
-  public final String getCustFirstName(){
+  public final String getCustFirstName()
+  {
     return custFirstName;
   } // end getCustFirstName
   
-  public final String getCustTaxId(){
+  public final String getCustTaxId()
+  {
     return custTaxId;
   }//end getCustTaxId
   
   
 } // end Customer Class
+                                 
