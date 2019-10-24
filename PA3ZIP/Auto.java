@@ -41,16 +41,26 @@ public class Auto extends Policy{
   public final void setAutoYear(int year)
     throws PolicyException
   {
-    if(year > 2009 && year < 2021){
+    if(year > 2009 && year < 2021)
+    {
       autoYear = year;
     }
     else
     {
-      throw new PolicyException("Year must be between 2009 and 2021");
+      throw new PolicyException("The year must be between 2009 and 2021.");
     }
   } // end setAutoYear
-  public final void setAutoVin(String id){
-    autoVin = id;
+  public final void setAutoVin(String id)
+  throws PolicyException
+  {
+    if(id.length() == 17 && id.matches("^([A-HJ-NPR-Z]){2}[A-HJ-NPR-Z0-9]{2,}$"))
+    {
+      autoVin = id;
+    }
+    else
+    {
+      throw new PolicyException("The Vin must be 17 characters long, not contain special characters, and must begin with two letters.");
+    }
   } // end setAutoVin
   public final void setAutoLimits(int[] lims){
     autoLimits = lims;
