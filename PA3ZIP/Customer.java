@@ -86,7 +86,7 @@ public class Customer
     }
     else
     {
-     throw new CustomerException("DATA VALIDATION" 
+     throw new CustomerException("DATA VALIDATION")
     }
   }// end setCustTaxId
   
