@@ -1,14 +1,16 @@
 /**
  * 
  */
-public class Customer {
+public class Customer 
+{
   
   private String custId; //unique id for customer, 7 digits, value must be > 100000
   private String custLastName; //customer last name, cant be null or spaces
   private String custFirstName; //customer first name, cant be null or spaces
   private String custTaxId; // customer TaxId; 9 digits long
   
-  public Customer(){
+  public Customer()
+  {
     custId = "9999999";
     custLastName = "Invalid";
     custFirstName = "Invalid";
@@ -30,7 +32,13 @@ public class Customer {
     {
       String oldMsg = xcptn.getMessage();
       
-      String newMsg = String.format("coc");
+      String newMsg = String.format("%ncustId: %s%ncustLastName: %s%ncusFirstName: %s%n"+
+                                    "cusTaxId: ",
+                                    id,
+                                    last,
+                                    first,
+                                    tax);
+                                   
       
       throw new CustomerException( oldMsg + newMsg, xcptn);
     }// end catch
@@ -44,7 +52,7 @@ public class Customer {
       custId = id;}
     else
     {
-      throw new CustomerException("No!");
+      throw new CustomerException("The id provided is over 7 digits");
     }
   } // end setCustId
   
