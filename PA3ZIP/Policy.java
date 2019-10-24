@@ -78,7 +78,7 @@ public abstract class Policy implements BookValue//Start Policy class
   public final void setPolNumber(String nbr)
     throws PolicyException
   {
-    if(nbr.length() == 7 && nbr.matches("([A-Z])+\\s{5}"))
+    if(nbr.length() == 7 && nbr.matches("^[A-z]{0,2}[\d]{5,5}$"))
     {polNumber = nbr;}
     else
     {

@@ -53,7 +53,7 @@ public class Auto extends Policy{
   public final void setAutoVin(String id)
   throws PolicyException
   {
-    if(id.length() == 17 && id.matches("^([A-HJ-NPR-Z]){2}[A-HJ-NPR-Z0-9]{2,}$"))
+    if(id.length() == 17 && id.matches("^(?:(?![IOQ\s])[A-Z\d])+$"))
     {
       autoVin = id;
     }
