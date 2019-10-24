@@ -6,9 +6,9 @@
 public abstract class Policy implements BookValue{
   
   private String polOwner; // Customer identifier that is seven digits long and int value must be > 10,000
-  private String polInsured; // Full, legal name of named insured on policy
-  private String polNumber; // Unique identifier for specific policy
-  private double polPremium; // Annual premium amount for policy
+  private String polInsured; // Name of insured
+  private String polNumber; // Identifier for each policy
+  private double polPremium; // Premium amount for policy
   
   public static Policy grpPolicy[] = new Policy[6]; // array of Policy members
   
@@ -22,10 +22,10 @@ public abstract class Policy implements BookValue{
   {
     try
     {
-    setPolOwner(own);
-    setPolInsured(insd);
-    setPolNumber(nbr);
-    setPolPremium(prem);
+      setPolOwner(own);
+      setPolInsured(insd);
+      setPolNumber(nbr);
+      setPolPremium(prem);
     }
     catch(PolicyException xcptn)
     {
@@ -42,7 +42,7 @@ public abstract class Policy implements BookValue{
   } // end identifyContract
   
   public final void setPolOwner(String own)
-   throws PolicyException
+    throws PolicyException
   {
     if(own.length()==7 && Integer.parseInt(own)>100000){
       polOwner = own;}
@@ -75,28 +75,28 @@ public abstract class Policy implements BookValue{
       throw new PolicyException("no");
     }
   } // end setPolPremium
-
+  
   public final String getPolOwner()
   {
     return polOwner;
   } // end getPolOwner
-    public final String getPolInsured()
+  public final String getPolInsured()
   {
     return polInsured;
   } // end getPolInsured
-public final String getPolNumber()
-{ 
-  return polNumber;
-} // end getPolNumber
-public final double getPolPremium()
-{
-  return polPremium;
-} // end getPolPremium
-
-public String toString()
-{
-  return String.format("%n%s owns Policy %s, insuring %s, with a premium of %.2f", getPolOwner(), 
-                       getPolNumber(),  getPolInsured(), getPolPremium());
-} // end toString
+  public final String getPolNumber()
+  { 
+    return polNumber;
+  } // end getPolNumber
+  public final double getPolPremium()
+  {
+    return polPremium;
+  } // end getPolPremium
+  
+  public String toString()
+  {
+    return String.format("%n%s owns Policy %s, insuring %s, with a premium of %.2f", getPolOwner(), 
+                         getPolNumber(),  getPolInsured(), getPolPremium());
+  } // end toString
   
 } // end class Policy
