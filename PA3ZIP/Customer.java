@@ -83,7 +83,7 @@ public class Customer
   
   public final void setCustTaxId(String tax)
   {
-    if(tax)
+    if(tax.length() == 9)
     {
     custTaxId = tax;
     }
