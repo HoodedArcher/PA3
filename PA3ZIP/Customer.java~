@@ -48,7 +48,7 @@ public class Customer
   public final void setCustId(String id)
     throws CustomerException
   {
-    if(id.length() == 7 && id.toInt() > 10000)
+    if(id.length() == 7 && Integer.parseInt(id) > 10000)
     {
       custId = id;
     }
@@ -59,6 +59,7 @@ public class Customer
   } // end setCustId
   
   public final void setCustLastName(String last)
+    throws CustomerException
   {
    if(last != "null" && last.matches("^(\\s){7}"))
    {
@@ -67,9 +68,11 @@ public class Customer
    else
    {
      throw new CustomerException("DATA VALIDATION");
+   }
   } // end setCustLastName
   
   public final void setCustFirstName(String first)
+    throws CustomerException
   {
     if(first != "null" && first.matches("^(\\s){7}"))
     {
@@ -82,6 +85,7 @@ public class Customer
   }// end setCustFirstName
   
   public final void setCustTaxId(String tax)
+    throws CustomerException
   {
     if(tax.length() == 9)
     {

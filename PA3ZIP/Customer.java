@@ -3,7 +3,6 @@
  */
 public class Customer 
 {
-  
   private String custId; //unique id for customer, 7 digits, value must be > 100000
   private String custLastName; //customer last name, cant be null or spaces
   private String custFirstName; //customer first name, cant be null or spaces
@@ -31,18 +30,14 @@ public class Customer
     catch(CustomerException xcptn)
     {
       String oldMsg = xcptn.getMessage();
-      
       String newMsg = String.format("%ncustId: %s%ncustLastName: %s%ncusFirstName: %s%n"+
                                     "cusTaxId: ",
                                     id,
                                     last,
                                     first,
                                     tax);
-                                   
-      
       throw new CustomerException( oldMsg + newMsg, xcptn);
-    }// end catch
-    
+    }// end catch 
   } // end Customer
   
   public final void setCustId(String id)
@@ -54,7 +49,7 @@ public class Customer
     }
     else
     {
-      throw new CustomerException("DATA VALIDATION: The id provided is over 7 digits");
+      throw new CustomerException("DATA VALIDATION: The id provided must be 7 digits and be greater than 10,000.");
     }
   } // end setCustId
   
@@ -67,7 +62,7 @@ public class Customer
    }
    else
    {
-     throw new CustomerException("DATA VALIDATION");
+     throw new CustomerException("DATA VALIDATION: ");
    }
   } // end setCustLastName
   

@@ -19,8 +19,6 @@ public class Auto extends Policy{
   public Auto(String own, String insd, String nbr, double prem, String model, int year, String id, int[] lims, int ded)
     throws PolicyException
   {
-    
-    
     super.setPolOwner(own);
     super.setPolInsured(insd);
     super.setPolNumber(nbr);
@@ -30,7 +28,6 @@ public class Auto extends Policy{
     setAutoVin(id);
     setAutoLimits(lims);
     setAutoDeductible(ded);
-    
   } // end Auto constructor
   
   // set methods
@@ -47,11 +44,11 @@ public class Auto extends Policy{
     }
     else
     {
-      throw new PolicyException("The year must be between 2009 and 2021.");
+      throw new PolicyException("DATA VALIDATION: The year must be between 2009 and 2021.");
     }
   } // end setAutoYear
   public final void setAutoVin(String id)
-  throws PolicyException
+    throws PolicyException
   {
     if(id.length() == 17 && id.matches("^(?:(?![IOQ\\s])[A-Z\\d])+$"))
     {
@@ -59,7 +56,7 @@ public class Auto extends Policy{
     }
     else
     {
-      throw new PolicyException("The Vin must be 17 characters long, not contain special characters, and cannot contain I, O, or Q.");
+      throw new PolicyException("DATA VALIDATION: The Vin must be 17 characters long, not contain special characters, and cannot contain I, O, or Q.");
     }
   } // end setAutoVin
   public final void setAutoLimits(int[] lims)
