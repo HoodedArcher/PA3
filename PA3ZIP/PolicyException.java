@@ -3,12 +3,12 @@
  */
   public class PolicyException extends Exception {
   
-  public PolicyException(String message){
-    super(message);
+  public PolicyException(String msg){
+    super(msg);
   }// end PolicyException
   
-  public PolicyException(String message, Throwable cause){
-    super(message, cause);
+  public PolicyException(String msg, Exception cause){
+    super(msg, cause);
   }//end policyException 
   
 }
