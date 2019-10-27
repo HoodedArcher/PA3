@@ -1,10 +1,10 @@
-/**
+/* Author: Charlton Cohen
  * Class Customer.java
  * PA3
  */
 public class Customer 
 {
-  private String custId;//unique id for customer, 7 digits, value must be > 100000
+  private String custId;//unique id for customer, 7 digits, value must be greater than 10000
   private String custLastName;//customer last name, cant be null or spaces
   private String custFirstName;//customer first name, cant be null or spaces
   private String custTaxId;//Customer tax id (9 digits)

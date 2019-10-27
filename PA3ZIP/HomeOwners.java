@@ -1,4 +1,4 @@
-/*
+/* Author: Brandon Stevenson
  * Class Policy Subclass - HomeOwners.java
  * PA3
  */

@@ -1,15 +1,18 @@
-/**
- *
+/* Author: Brandon Stevenson
+ * Class Policy Exception -CustomerException.Java
+ * PA3
  */
-public class CustomerException extends Exception{
+public class CustomerException extends Exception
+{
   
   public CustomerException(String msg)
   {
     super(msg);
-  }// end CustomerException
+  }//END CustomerException
   
-  public CustomerException(String msg, Exception cause){
+  public CustomerException(String msg, Exception cause)
+  {
     super(msg, cause);
-  } // end CustomerException
+  } //END CustomerException
   
 }

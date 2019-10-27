@@ -1,4 +1,4 @@
-/**
+/* Author: Charlton Cohen
  * Class Policy Subclass - Auto.Java
  * PA3
  */

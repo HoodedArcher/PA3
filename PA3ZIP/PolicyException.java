@@ -1,14 +1,17 @@
-/**
- *
+/* Author: Zachary Kielb
+ * Class Policy Exception -PolicyException.Java
+ * PA3
  */
-  public class PolicyException extends Exception {
+  public class PolicyException extends Exception 
+  {
   
   public PolicyException(String msg){
     super(msg);
-  }// end PolicyException
+  }//END PolicyException
   
-  public PolicyException(String msg, Exception cause){
+  public PolicyException(String msg, Exception cause)
+  {
     super(msg, cause);
-  }//end policyException 
+  }//END PolicyException 
   
 }
