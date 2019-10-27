@@ -15,7 +15,7 @@ public class HomeOwners extends Policy
   private double homeDeductible;//Percentage of total insured value
   private boolean umbrella;//Indication if the policy is covered under umbrella
   
-  //constructors
+  //Constructors
   public HomeOwners()
   {
     super();//Call to super null

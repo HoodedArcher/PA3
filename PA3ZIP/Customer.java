@@ -4,10 +4,10 @@
  */
 public class Customer 
 {
-  private String custId; //unique id for customer, 7 digits, value must be > 100000
-  private String custLastName; //customer last name, cant be null or spaces
-  private String custFirstName; //customer first name, cant be null or spaces
-  private String custTaxId; // customer TaxId; 9 digits long
+  private String custId;//unique id for customer, 7 digits, value must be > 100000
+  private String custLastName;//customer last name, cant be null or spaces
+  private String custFirstName;//customer first name, cant be null or spaces
+  private String custTaxId;//Customer tax id (9 digits)
   
   public Customer()
   {
@@ -16,7 +16,7 @@ public class Customer
     custFirstName = "Invalid";
     custTaxId = "999999999";
     
-  } // end Customer
+  }//END Customer
   
   public Customer(String id, String last, String first, String tax) 
     throws CustomerException
@@ -27,7 +27,7 @@ public class Customer
       setCustLastName(last);
       setCustFirstName(first);
       setCustTaxId(tax);
-    }// end try
+    }//END try
     catch(CustomerException xcptn)
     {
       String oldMsg = xcptn.getMessage();
@@ -38,8 +38,8 @@ public class Customer
                                     first,
                                     tax);
       throw new CustomerException( oldMsg + newMsg, xcptn);
-    }// end catch 
-  } // end Customer
+    }//END catch 
+  }//END Customer
   
   public final void setCustId(String id)
     throws CustomerException
@@ -52,7 +52,7 @@ public class Customer
     {
       throw new CustomerException("DATA VALIDATION: The id provided must be 7 digits and be greater than 10,000.");
     }
-  } // end setCustId
+  }//END setCustId
   
   public final void setCustLastName(String last)
     throws CustomerException
@@ -65,7 +65,7 @@ public class Customer
    {
      throw new CustomerException("DATA VALIDATION: ");
    }
-  } // end setCustLastName
+  }//END setCustLastName
   
   public final void setCustFirstName(String first)
     throws CustomerException
@@ -78,7 +78,7 @@ public class Customer
     {
       throw new CustomerException("DATA VALIDATION");
   }
-  }// end setCustFirstName
+  }//END setCustFirstName
   
   public final void setCustTaxId(String tax)
     throws CustomerException
@@ -91,27 +91,27 @@ public class Customer
     {
      throw new CustomerException("DATA VALIDATION");
     }
-  }// end setCustTaxId
+  }//END setCustTaxId
   
   public final String getCustId()
   {
     return custId;
-  } // end getCustId
+  }//END getCustId
   
   public final String getCustLastName()
   {
     return custLastName;
-  } // end getCustLastName
+  }//END getCustLastName
   
   public final String getCustFirstName()
   {
     return custFirstName;
-  } // end getCustFirstName
+  }//END getCustFirstName
   
   public final String getCustTaxId()
   {
     return custTaxId;
-  }//end getCustTaxId
+  }//END getCustTaxId
   
   
-} // end Customer Class
+}//END Customer Class

@@ -20,7 +20,6 @@ public abstract class Policy implements BookValue//Start Policy class
   
   public Policy()//null constructor
   {
-    
   }//end null constructor
   
   public Policy(String own,
