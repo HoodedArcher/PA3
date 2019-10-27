@@ -71,7 +71,7 @@ public class HomeOwners extends Policy
   public final void setHomePropAddress(String addr)
   {
     homePropAddress = addr;
-  }
+  }//END setHomePropAddress
   
   public final void setHomePropType(int type)
     throws PolicyException
@@ -81,10 +81,12 @@ public class HomeOwners extends Policy
       homePropType = type;
     }
     else
-   
+    {
+    homePropType = 1;
     throw new PolicyException("DATA VALIDATION: Only values 1-4 (inclusive) are acceptable"+
                               ",and other value offered should be replaced with a value of 1");
-  }
+    }
+  }//END setHomePropType
   public final void setHomeStructure(int struct)
     throws PolicyException
   {
@@ -94,9 +96,11 @@ public class HomeOwners extends Policy
     }
     
       else
+      {
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 50 and less than 5000 (inclusive)");
+      }
   
-  }
+  }//END setHomeStructure
   public final void setHomeContents(int goods)
     throws PolicyException
   {
@@ -106,7 +110,9 @@ public class HomeOwners extends Policy
     }
     
       else
+      {
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 5 and less than 500 (inclusive)");
+      }
   
   }
   public final void setHomeDeductible(double ded)
@@ -118,9 +124,11 @@ public class HomeOwners extends Policy
     }
     
       else
+      {
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 0.01 and less than 0.10 (inclusive)");
+      }
   
-  }
+  }//END setHomeDeductible
   public final void setUmbrella(boolean umbr)
   {
     umbrella = umbr;
