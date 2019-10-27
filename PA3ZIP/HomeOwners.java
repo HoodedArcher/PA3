@@ -19,7 +19,7 @@ public class HomeOwners extends Policy
   public HomeOwners()
   {
     super();//Call to super null
-  }//null constructor
+  }//Null constructor
   
   public HomeOwners(String own,
                     String insd,
