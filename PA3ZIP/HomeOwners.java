@@ -1,4 +1,4 @@
-/*
+/* Author: Brandon Stevenson
  * Class Policy Subclass - HomeOwners.java
  * PA3
  */
@@ -53,8 +53,8 @@ public class HomeOwners extends Policy
     {
       String oldMsg = xcptn.getMessage();
       
-      String newMsg = String.format("%nHomePropAddress: %s%nHomePropType: %d%nHomeStructure"+
-                                    "%d%nHomeContents: %d%nHomeDeductible: %f%n: Umbrella: %s%n",
+      String newMsg = String.format("%nHomePropAddress: %s%nHomePropType: %d%nHomeStructure: "+
+                                    "%d%nHomeContents: %d%nHomeDeductible: %f%nUmbrella: %s%n",
                                     homePropAddress,
                                     homePropType,
                                     homeStructure,
@@ -76,17 +76,22 @@ public class HomeOwners extends Policy
   public final void setHomePropType(int type)
     throws PolicyException
   {
-    if(type > 0 && type < 3){
-      homePropType = type;}
+    if(type >= 1 && type <= 4)
+    {
+      homePropType = type;
+    }
     else
-      homePropType = 1;
+   
     throw new PolicyException("DATA VALIDATION: Only values 1-4 (inclusive) are acceptable"+
                               ",and other value offered should be replaced with a value of 1");
   }
   public final void setHomeStructure(int struct)
     throws PolicyException
   {
-    if( struct> 50 || struct < 5000) {homeStructure = struct;}
+    if( struct >= 50 && struct <= 5000) 
+    {
+      homeStructure = struct;
+    }
     
       else
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 50 and less than 5000 (inclusive)");
@@ -95,7 +100,10 @@ public class HomeOwners extends Policy
   public final void setHomeContents(int goods)
     throws PolicyException
   {
-    if( goods > 5 || goods < 500) {homeContents = goods;}
+    if( goods >= 5 && goods <= 500) 
+    {
+      homeContents = goods;
+    }
     
       else
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 5 and less than 500 (inclusive)");
@@ -104,7 +112,10 @@ public class HomeOwners extends Policy
   public final void setHomeDeductible(double ded)
     throws PolicyException
   {
-    if( ded > 0.01 || ded < 0.10) {homeDeductible = ded;}
+    if( ded >= 0.01 && ded <= 0.10) 
+    {
+      homeDeductible = ded;
+    }
     
       else
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 0.01 and less than 0.10 (inclusive)");

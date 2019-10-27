@@ -1,12 +1,14 @@
-/**
+/* Author: Charlton Cohen
  * Class Customer.java
  * PA3
  */
 public class Customer 
 {
+//instance variables
   private String custId;//Unique customer id (7 digits > 10000)
   private String custLastName;//Customer last name (no null or spaces)
   private String custFirstName;//Customer first name (no null or spaces)
+
   private String custTaxId;//Customer tax id (9 digits)
   
   public Customer()

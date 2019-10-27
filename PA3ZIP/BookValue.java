@@ -1,4 +1,4 @@
-/**
+/* Author: Zachary Kielb
  * Class Interface - BookValue.java
  * PA3
  */
