@@ -86,7 +86,7 @@ public class HomeOwners extends Policy
   public final void setHomeStructure(int struct)
     throws PolicyException
   {
-    if( struct > 50 || struct < 5000) {homeStructure = struct;}
+    if( struct> 50 || struct < 5000) {homeStructure = struct;}
     
       else
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 50 and less than 5000 (inclusive)");

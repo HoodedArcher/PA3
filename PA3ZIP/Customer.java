@@ -15,7 +15,6 @@ public class Customer
     custLastName = "Invalid";
     custFirstName = "Invalid";
     custTaxId = "999999999";
-    
   }//END Customer
   
   public Customer(String id, String last, String first, String tax) 
@@ -57,33 +56,33 @@ public class Customer
   public final void setCustLastName(String last)
     throws CustomerException
   {
-   if(first == null || first.trim().length() == 0)
+   if(last != "null" && last.matches("^(\\s){7}"))
    {
-    throw new CustomerException("DATA VALIDATION: Must not be null or all spaces.");
+    custLastName = last;
    }
    else
    {
-     custLastName = last;
+     throw new CustomerException("DATA VALIDATION: ");
    }
   }//END setCustLastName
   
   public final void setCustFirstName(String first)
     throws CustomerException
   {
-    if(first == null || first.trim().length() == 0)
+    if(first != "null" && first.matches("^(\\s){7}"))
     {
-      throw new CustomerException("Not a valid customer first name! Must contain text.");
-    } // end if
+    custFirstName = first;
+    }
     else
     {
-      custFirstName = first;
-    }
+      throw new CustomerException("DATA VALIDATION");
+  }
   }//END setCustFirstName
   
   public final void setCustTaxId(String tax)
     throws CustomerException
   {
-    if(tax.matches("[0-9]+") && tax.length() == 9)
+    if(tax.length() == 9)
     {
     custTaxId = tax;
     }
