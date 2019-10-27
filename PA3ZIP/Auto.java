@@ -121,10 +121,5 @@ public class Auto extends Policy{
                          getAutoVin(),
                          produceLimitsTxt(),
                          getAutoDeductible());
-    
-    
   } // end toString
-  
-  
-  
 } // end class Auto
