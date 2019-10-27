@@ -51,7 +51,8 @@ public class Customer
     }
     else
     {
-      throw new CustomerException("DATA VALIDATION: The id provided must be 7 digits and be greater than 10,000.");
+      throw new CustomerException("DATA VALIDATION: offered values for custID must consist of 7 digits; the integer value represented be the String" +
+                                  "must be greater than 10000");
     }
   }//END setCustId
   
@@ -60,7 +61,7 @@ public class Customer
   {
    if(last == null || last.trim().length() == 0)
     {
-      throw new CustomerException("DATA VALIDATION:");
+      throw new CustomerException("DATA VALIDATION: the offered String may not be null or all spaces");
     } // end if
     else
     {
@@ -73,7 +74,7 @@ public class Customer
   {
     if(first == null || first.trim().length() == 0)
     {
-      throw new CustomerException("DATA VALIDATION: ");
+      throw new CustomerException("DATA VALIDATION: the offered String may not be null or all spaces");
     } // end if
     else
     {
@@ -90,7 +91,7 @@ public class Customer
     } // end if
     else
     {
-      throw new CustomerException("DATA VALIDATION: ");
+      throw new CustomerException("DATA VALIDATION: the offered value must be all digits, and exactly 9 digits long");
     }
   }//END setCustTaxId
   
