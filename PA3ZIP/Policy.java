@@ -1,11 +1,5 @@
-/*@Application(1)Policy.java
- * @Author Brandon Stevenson
- * @Version 1.00 2019/10/23
- * 
- *This code is in regards to finding information on policys for annunity, homeowners, and auto insurance. 
- * This is done utilizing inheritance, with the class Policy acting as the superclass for HomeOwners and Auto subclasses.
- * Also a interface is used to for common abstract methods between classes. BookValue is implemented by Policy and Annuity.
- * Test_Policy_BookValue is the test harness to test this code.
+/*
+ * Policy
  */
 
 public abstract class Policy implements BookValue//Start Policy class

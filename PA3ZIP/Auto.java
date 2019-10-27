@@ -1,20 +1,20 @@
 /**
- * Class Auto
- * Auto is a subclass of Policy
+ * Class Policy Subclass - Auto.Java
+ * PA3
  */
 
 public class Auto extends Policy{
   
-  private final double EXPOSURE_RATE = 0.0051; // Constant of auto class
-  private String autoModel; // Stores make and model of vehicle
-  private int autoYear; // Stores model year of vehicle
-  private String autoVin; // Stores vehicle identification number
-  private int[] autoLimits = new int[3]; // Array values correlate to Collision, Comprhensive, and UIM
-  private int autoDeductible; // Policy deductible in dollars
+  private final double EXPOSURE_RATE = 0.0051;//Constant
+  private String autoModel;//Stores make and model of vehicle
+  private int autoYear;//Stores model year of vehicle
+  private String autoVin;//Stores vehicle identification number
+  private int[] autoLimits = new int[3];//Array values correlate to Collision, Comprhensive, and UIM
+  private int autoDeductible;//Policy deductible in dollars
   
   public Auto(){
     super();
-  } // end null Auto constructor
+  }//END null Auto constructor
   
   public Auto(String own, String insd, String nbr, double prem, String model, int year, String id, int[] lims, int ded)
     throws PolicyException
@@ -28,13 +28,13 @@ public class Auto extends Policy{
     setAutoVin(id);
     setAutoLimits(lims);
     setAutoDeductible(ded);
-  } // end Auto constructor
+  }//END Auto constructor
   
-  // set methods
+//Set methods
   
   public final void setAutoModel(String model){
     autoModel = model;
-  } // end setAutoModel
+  }//END setAutoModel
   public final void setAutoYear(int year)
     throws PolicyException
   {
@@ -46,7 +46,7 @@ public class Auto extends Policy{
     {
       throw new PolicyException("DATA VALIDATION: The year must be between 2009 and 2021.");
     }
-  } // end setAutoYear
+  }//END setAutoYear
   public final void setAutoVin(String id)
     throws PolicyException
   {
@@ -58,37 +58,37 @@ public class Auto extends Policy{
     {
       throw new PolicyException("DATA VALIDATION: The Vin must be 17 characters long, not contain special characters, and cannot contain I, O, or Q.");
     }
-  } // end setAutoVin
+  }//END setAutoVin
   public final void setAutoLimits(int[] lims)
   {
     autoLimits = lims;
-  } // end setAutoLimits
+  }//END setAutoLimits
   public final void setAutoDeductible(int ded)
   {
     autoDeductible = ded;
-  } // end setAutoDeductible
+  }//END setAutoDeductible
   
-  // get methods
+//Get methods
   public final String getAutoModel()
   {
     return autoModel;
-  } // end getAutoModel
+  }//END getAutoModel
   public final int getAutoYear()
   {
     return autoYear;
-  } // end getAutoYear
+  }//END getAutoYear
   public final String getAutoVin()
   {
     return autoVin;
-  } // end getAutoVin
+  }//END getAutoVin
   public final int[] getAutoLimits()
   {
     return autoLimits;
-  } // end getAutoLimits
+  }//END getAutoLimits
   public final int getAutoDeductible()
   {
     return autoDeductible;
-  } // end getAutoDeductible
+  }//END getAutoDeductible
   
   
   public String produceLimitsTxt()
@@ -97,17 +97,17 @@ public class Auto extends Policy{
                          autoLimits[0]*1000,
                          autoLimits[1]*1000,
                          autoLimits[2]*1000); 
-  } // end produceLimitsTxt
+  }//END produceLimitsTxt
   
   public double calcExposure()
   {
     return autoLimits[0] + autoLimits[1] + autoLimits[2];
-  } // end calcExposure
+  }//END calcExposure
   
   public double calcCurrentValue()
   {
     return super.getPolPremium() - (calcExposure() * EXPOSURE_RATE);
-  } // end calcCurrentValue
+  }//END calcCurrentValue
   
   public String toString(){
     return String.format("%s%nThis %s policy insures a %,d %s, VIN %s, with limits %s and a $%,d.00.",
@@ -118,5 +118,5 @@ public class Auto extends Policy{
                          getAutoVin(),
                          produceLimitsTxt(),
                          getAutoDeductible());
-  } // end toString
-} // end class Auto
+  }//END toString
+}//END class Auto

@@ -1,5 +1,6 @@
 /**
- * 
+ * Class Customer.java
+ * PA3
  */
 public class Customer 
 {
