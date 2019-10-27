@@ -3,13 +3,13 @@
  */
 public class CustomerException extends Exception{
   
-  public CustomerException(String message)
+  public CustomerException(String msg)
   {
-    super(message);
+    super(msg);
   }// end CustomerException
   
-  public CustomerException(String message, Throwable cause){
-    super(message, cause);
+  public CustomerException(String msg, Exception cause){
+    super(msg, cause);
   } // end CustomerException
   
 }
