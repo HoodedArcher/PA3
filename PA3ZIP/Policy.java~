@@ -1,6 +1,6 @@
 /*@Application(1)Policy.java
  * @Author Brandon Stevenson
- * @Version 1.00 2019/09/17
+ * @Version 1.00 2019/10/23
  * 
  *This code is in regards to finding information on policys for annunity, homeowners, and auto insurance. 
  * This is done utilizing inheritance, with the class Policy acting as the superclass for HomeOwners and Auto subclasses.
@@ -47,8 +47,13 @@ public abstract class Policy implements BookValue//Start Policy class
     {
       String oldMsg = xcptn.getMessage();
       
-      String newMsg = String.format("This is a thing");
-      
+      String newMsg = String.format("%nOwner: %s%nInsured: %s%nNumber:"+
+                                    "%s%nPremiem: %d%n",
+                                    polOwner,
+                                    polInsured,
+                                    polNumber,
+                                    polPremium);
+ 
       throw new PolicyException( oldMsg + newMsg,   //String Msg
                                 xcptn);             //Exception cause
     }//end catch policyException
@@ -73,7 +78,7 @@ public abstract class Policy implements BookValue//Start Policy class
   public final void setPolNumber(String nbr)
     throws PolicyException
   {
-    if(nbr.length() == 7 && nbr.matches("([A-Z])+\\s{5}"))
+    if(nbr.length() == 7 && nbr.matches("^[A-z]{0,2}[\d]{5,5}$"))
     {polNumber = nbr;}
     else
     {

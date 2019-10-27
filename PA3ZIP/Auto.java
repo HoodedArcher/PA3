@@ -53,64 +53,69 @@ public class Auto extends Policy{
   public final void setAutoVin(String id)
   throws PolicyException
   {
-    if(id.length() == 17 && id.matches("^(?:(?![IOQ\s])[A-Z\d])+$"))
+    if(id.length() == 17 && id.matches("^(?:(?![IOQ\\s])[A-Z\\d])+$"))
     {
       autoVin = id;
     }
     else
     {
-      throw new PolicyException("The Vin must be 17 characters long, not contain special characters, and must begin with two letters.");
+      throw new PolicyException("The Vin must be 17 characters long, not contain special characters, and cannot contain I, O, or Q.");
     }
   } // end setAutoVin
-  public final void setAutoLimits(int[] lims){
+  public final void setAutoLimits(int[] lims)
+  {
     autoLimits = lims;
   } // end setAutoLimits
-  public final void setAutoDeductible(int ded){
+  public final void setAutoDeductible(int ded)
+  {
     autoDeductible = ded;
   } // end setAutoDeductible
   
   // get methods
-  public final String getAutoModel(){
+  public final String getAutoModel()
+  {
     return autoModel;
   } // end getAutoModel
-  public final int getAutoYear(){
+  public final int getAutoYear()
+  {
     return autoYear;
   } // end getAutoYear
-  public final String getAutoVin(){
+  public final String getAutoVin()
+  {
     return autoVin;
   } // end getAutoVin
-  public final int[] getAutoLimits(){
+  public final int[] getAutoLimits()
+  {
     return autoLimits;
   } // end getAutoLimits
-  public final int getAutoDeductible(){
+  public final int getAutoDeductible()
+  {
     return autoDeductible;
   } // end getAutoDeductible
   
   
-  public String produceLimitsTxt(){
-    
+  public String produceLimitsTxt()
+  {
     return String.format("%nCollision: $%,d.00, Comprehensive: $%,d.00, UIM: $%,d.00",
                          autoLimits[0]*1000,
                          autoLimits[1]*1000,
-                         autoLimits[2]*1000);
-    
+                         autoLimits[2]*1000); 
   } // end produceLimitsTxt
   
-  public double calcExposure(){
-    
+  public double calcExposure()
+  {
     return autoLimits[0] + autoLimits[1] + autoLimits[2];
-    
   } // end calcExposure
   
-  public double calcCurrentValue(){
-    
+  public double calcCurrentValue()
+  {
     return super.getPolPremium() - (calcExposure() * EXPOSURE_RATE);
-    
   } // end calcCurrentValue
   
   public String toString(){
     return String.format("%s%nThis %s policy insures a %,d %s, VIN %s, with limits %s and a $%,d.00.",
-                         super.toString(), this.getClass(),
+                         super.toString(),
+                         getClass().getSimpleName(),
                          getAutoYear(),
                          getAutoModel(),
                          getAutoVin(),

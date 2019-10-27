@@ -50,8 +50,10 @@ public class Auto extends Policy{
       throw new PolicyException("The year must be between 2009 and 2021.");
     }
   } // end setAutoYear
-  public final void setAutoVin(String id){
-    if(id.length() == 17 && id.matcher("^([A-HJ-NPR-Z]){2}[A-HJ-NPR-Z0-9]{2,}$"))
+  public final void setAutoVin(String id)
+  throws PolicyException
+  {
+    if(id.length() == 17 && id.matches("^(?:(?![IOQ\s])[A-Z\d])+$"))
     {
       autoVin = id;
     }
