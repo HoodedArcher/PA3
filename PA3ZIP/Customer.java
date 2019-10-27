@@ -4,9 +4,15 @@
  */
 public class Customer 
 {
+<<<<<<< HEAD
   private String custId;//unique id for customer, 7 digits, value must be greater than 10000
   private String custLastName;//customer last name, cant be null or spaces
   private String custFirstName;//customer first name, cant be null or spaces
+=======
+  private String custId;//Unique customer id (7 digits > 10000)
+  private String custLastName;//Customer last name (no null or spaces)
+  private String custFirstName;//Customer first name (no null or spaces)
+>>>>>>> e0ba6e6f863718d30e6ce5ea7863e397a344c9eb
   private String custTaxId;//Customer tax id (9 digits)
   
   public Customer()
@@ -15,7 +21,6 @@ public class Customer
     custLastName = "Invalid";
     custFirstName = "Invalid";
     custTaxId = "999999999";
-    
   }//END Customer
   
   public Customer(String id, String last, String first, String tax) 
@@ -112,6 +117,4 @@ public class Customer
   {
     return custTaxId;
   }//END getCustTaxId
-  
-  
 }//END Customer Class
