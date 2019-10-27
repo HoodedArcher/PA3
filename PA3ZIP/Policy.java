@@ -72,11 +72,11 @@ public abstract class Policy implements BookValue//Start Policy class
          throw new PolicyException("DATA VALIDATION: String must be greater than 10000");
        }
        
-  }
+  }//end setPolOwner
   public final void setPolInsured(String insd)
   {
     polInsured = insd;
-  }
+  }//end setPolInsured
   public final void setPolNumber(String nbr)
     throws PolicyException
   {
@@ -86,7 +86,7 @@ public abstract class Policy implements BookValue//Start Policy class
     {
       throw new PolicyException("DATA VALIDATION: Use a regular expression for this validation");
     }
-  }
+  }//end setPolNumber
   
   public final void setPolPremium(double prem)
     throws PolicyException
@@ -96,7 +96,7 @@ public abstract class Policy implements BookValue//Start Policy class
        {
          throw new PolicyException("DATA VALIDATION: The value offered for must be greater than 0");
        }
-  }
+  }//end setPolPremium
   //end set methods
   
   /*
@@ -107,20 +107,20 @@ public abstract class Policy implements BookValue//Start Policy class
   public final String getPolOwner()
   {
     return polOwner;
-  }
+  }//end getPolOwner
   public final String getPolInsured()
   {
     return polInsured;
-  }
+  }//end getPolInsured
   public final String getPolNumber()
   {
     return polNumber;
-  }
+  }//end getPolNumber
  
   public final double getPolPremium()
   {
     return polPremium;
-  }
+  }//end getPolPremium
   //end get methods
   
  

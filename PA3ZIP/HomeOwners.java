@@ -114,7 +114,7 @@ public class HomeOwners extends Policy
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 5 and less than 500 (inclusive)");
       }
   
-  }
+  }//END setHomeContents
   public final void setHomeDeductible(double ded)
     throws PolicyException
   {
@@ -132,7 +132,7 @@ public class HomeOwners extends Policy
   public final void setUmbrella(boolean umbr)
   {
     umbrella = umbr;
-  }
+  }//END setUmbrella
 //end set methods
   
   /*
@@ -141,27 +141,27 @@ public class HomeOwners extends Policy
   public final String getHomePropAddress()
   {
     return homePropAddress;
-  }
+  }//END getHomePropAddress
   public final int getHomePropType()
   {
     return homePropType;
-  }
+  }//END getHomePropType
   public final int getHomeStructure()
   {
     return homeStructure;
-  }
+  }//END getHomeStructure
   public final int getHomeContents()
   {
     return homeContents;
-  }
+  }//END getHomeContents
   public final double getHomeDeductible()
   {
     return homeDeductible;
-  }
+  }//END getHomeDeductible
   public final boolean getUmbrella()
   {
     return umbrella;
-  }
+  }//END getUmbrella
 //end get methods
   
   public final double getDeductibleInDollars()//method that calculates the dollar value of the deductible
@@ -201,8 +201,8 @@ public class HomeOwners extends Policy
       str += "This policy is not part of an Umbrella contract.";
     }
     return str;                     
-  }
-}
+  }//END toString
+}//END class
 
 
 
