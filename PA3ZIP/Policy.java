@@ -31,7 +31,8 @@ public abstract class Policy implements BookValue//Start Policy class
   public Policy(String own,
                 String insd,
                 String nbr,
-                double prem)//start full constructor
+                double prem)
+//start full constructor
     throws PolicyException
   {
     try
@@ -67,7 +68,9 @@ public abstract class Policy implements BookValue//Start Policy class
   {
     if(own.length() == 7 && Integer.parseInt(own)>10000){ polOwner = own;}
        else
-         {throw new PolicyException("DATA VALIDATION: String must be greater than 10000");}
+         {
+         throw new PolicyException("DATA VALIDATION: String must be greater than 10000");
+       }
        
   }
   public final void setPolInsured(String insd)
@@ -81,7 +84,8 @@ public abstract class Policy implements BookValue//Start Policy class
     {polNumber = nbr;}
     else
     {
-      throw new PolicyException("DATA VALIDATION: Use a regular expression for this validation");}
+      throw new PolicyException("DATA VALIDATION: Use a regular expression for this validation");
+    }
   }
   
   public final void setPolPremium(double prem)
@@ -89,7 +93,9 @@ public abstract class Policy implements BookValue//Start Policy class
   {
     if(prem > 0) {polPremium = prem;}
        else
-         {throw new PolicyException("DATA VALIDATION: The value offered for must be greater than 0");}
+       {
+         throw new PolicyException("DATA VALIDATION: The value offered for must be greater than 0");
+       }
   }
   //end set methods
   
