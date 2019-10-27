@@ -1,12 +1,14 @@
-/**
+/* Author: Charlton Cohen
  * Class Customer.java
  * PA3
  */
 public class Customer 
 {
-  private String custId;//unique id for customer, 7 digits, value must be > 100000
-  private String custLastName;//customer last name, cant be null or spaces
-  private String custFirstName;//customer first name, cant be null or spaces
+//instance variables
+  private String custId;//Unique customer id (7 digits > 10000)
+  private String custLastName;//Customer last name (no null or spaces)
+  private String custFirstName;//Customer first name (no null or spaces)
+
   private String custTaxId;//Customer tax id (9 digits)
   
   public Customer()
@@ -15,7 +17,6 @@ public class Customer
     custLastName = "Invalid";
     custFirstName = "Invalid";
     custTaxId = "999999999";
-    
   }//END Customer
   
   public Customer(String id, String last, String first, String tax) 
@@ -112,6 +113,4 @@ public class Customer
   {
     return custTaxId;
   }//END getCustTaxId
-  
-  
 }//END Customer Class

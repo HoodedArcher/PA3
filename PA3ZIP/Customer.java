@@ -58,39 +58,39 @@ public class Customer
   public final void setCustLastName(String last)
     throws CustomerException
   {
-   if(last != "null" && last.matches("^(\\s){7}"))
-   {
-    custLastName = last;
-   }
-   else
-   {
-     throw new CustomerException("DATA VALIDATION: ");
+   if(last == null || last.trim().length() == 0)
+    {
+      throw new CustomerException("DATA VALIDATION:");
+    } // end if
+    else
+    {
+      custLastName = last;
    }
   }//END setCustLastName
   
   public final void setCustFirstName(String first)
     throws CustomerException
   {
-    if(first != "null" && first.matches("^(\\s){7}"))
+    if(first == null || first.trim().length() == 0)
     {
-    custFirstName = first;
-    }
+      throw new CustomerException("DATA VALIDATION: ");
+    } // end if
     else
     {
-      throw new CustomerException("DATA VALIDATION");
+      custFirstName = first;
   }
   }//END setCustFirstName
   
   public final void setCustTaxId(String tax)
     throws CustomerException
   {
-    if(tax.length() == 9)
+    if (tax.matches("[0-9]+") && tax.length() == 9)
     {
-    custTaxId = tax;
-    }
+      custTaxId = tax;
+    } // end if
     else
     {
-     throw new CustomerException("DATA VALIDATION");
+      throw new CustomerException("DATA VALIDATION: ");
     }
   }//END setCustTaxId
   
@@ -113,4 +113,13 @@ public class Customer
   {
     return custTaxId;
   }//END getCustTaxId
+  
+  public String toString()
+  {
+    return String.format("Customer Id %s belongs to %s %s, tax reporting id: %s.",
+                         getCustId(),
+                         getCustFirstName(),
+                         getCustLastName(),
+                         getCustTaxId());
+  }//END toString
 }//END Customer Class
