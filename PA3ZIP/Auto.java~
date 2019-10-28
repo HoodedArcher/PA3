@@ -44,7 +44,8 @@ public class Auto extends Policy{
     }
     else
     {
-      throw new PolicyException("DATA VALIDATION: The year must be between 2009 and 2021.");
+      throw new PolicyException("DATA VALIDATION: the value offered for autoYear must be greater than 2009 and less" + 
+                                " than 2021 (exclusive range)");
     }
   }//END setAutoYear
   public final void setAutoVin(String id)
@@ -56,7 +57,9 @@ public class Auto extends Policy{
     }
     else
     {
-      throw new PolicyException("DATA VALIDATION: The Vin must be 17 characters long, not contain special characters, and cannot contain I, O, or Q.");
+      throw new PolicyException("DATA VALIDATION: the value offered for autoVin must be: 17 characters in length;" +
+                                "include both (capital only) alphabetic and numeric characters; exclude special" + 
+                                " characters and whitespace; exclude specific characters (I, O, Q).");
     }
   }//END setAutoVin
   public final void setAutoLimits(int[] lims)

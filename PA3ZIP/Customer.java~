@@ -8,14 +8,13 @@ public class Customer
   private String custId;//Unique customer id (7 digits > 10000)
   private String custLastName;//Customer last name (no null or spaces)
   private String custFirstName;//Customer first name (no null or spaces)
-
   private String custTaxId;//Customer tax id (9 digits)
   
   public Customer()
   {
     custId = "9999999";
-    custLastName = "Invalid";
-    custFirstName = "Invalid";
+    custLastName = "INVALID";
+    custFirstName = "INVALID";
     custTaxId = "999999999";
   }//END Customer
   

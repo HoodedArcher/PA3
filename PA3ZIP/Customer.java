@@ -1,4 +1,5 @@
-/* Author: Charlton Cohen
+/*
+ * Author: Charlton Cohen
  * Class Customer.java
  * PA3
  */
@@ -31,8 +32,7 @@ public class Customer
     catch(CustomerException xcptn)
     {
       String oldMsg = xcptn.getMessage();
-      String newMsg = String.format("%ncustId: %s%ncustLastName: %s%ncusFirstName: %s%n"+
-                                    "cusTaxId: ",
+      String newMsg = String.format("%ncustId: %s%ncustLastName: %s%ncusFirstName: %s%ncusTaxId: %s%n",
                                     id,
                                     last,
                                     first,
@@ -61,11 +61,11 @@ public class Customer
    if(last == null || last.trim().length() == 0)
     {
       throw new CustomerException("DATA VALIDATION: the offered String may not be null or all spaces");
-    } // end if
+    }
     else
     {
       custLastName = last;
-   }
+   }//END if statement
   }//END setCustLastName
   
   public final void setCustFirstName(String first)
@@ -74,11 +74,11 @@ public class Customer
     if(first == null || first.trim().length() == 0)
     {
       throw new CustomerException("DATA VALIDATION: the offered String may not be null or all spaces");
-    } // end if
+    }
     else
     {
       custFirstName = first;
-  }
+  }//END if statement
   }//END setCustFirstName
   
   public final void setCustTaxId(String tax)
@@ -87,11 +87,11 @@ public class Customer
     if (tax.matches("[0-9]+") && tax.length() == 9)
     {
       custTaxId = tax;
-    } // end if
+    }
     else
     {
       throw new CustomerException("DATA VALIDATION: the offered value must be all digits, and exactly 9 digits long");
-    }
+    }//END if statement
   }//END setCustTaxId
   
   public final String getCustId()

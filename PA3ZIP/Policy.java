@@ -123,8 +123,6 @@ public abstract class Policy implements BookValue//Start Policy class
   }//end getPolPremium
   //end get methods
   
- 
-  
   public String identifyContract()
   {
     return getPolNumber();
@@ -141,7 +139,6 @@ public abstract class Policy implements BookValue//Start Policy class
                             getPolInsured(),
                             getPolPremium());
    return toString;
-    
   }//end toString
 }//end class
     

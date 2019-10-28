@@ -1,5 +1,11 @@
-/*
- * Policy
+/*@Application(1)Policy.java
+ * @Author Brandon Stevenson
+ * @Version 1.00 2019/09/17
+ * 
+ *This code is in regards to finding information on policys for annunity, homeowners, and auto insurance. 
+ * This is done utilizing inheritance, with the class Policy acting as the superclass for HomeOwners and Auto subclasses.
+ * Also a interface is used to for common abstract methods between classes. BookValue is implemented by Policy and Annuity.
+ * Test_Policy_BookValue is the test harness to test this code.
  */
 
 public abstract class Policy implements BookValue//Start Policy class
@@ -20,13 +26,13 @@ public abstract class Policy implements BookValue//Start Policy class
   
   public Policy()//null constructor
   {
-    
   }//end null constructor
   
   public Policy(String own,
                 String insd,
                 String nbr,
-                double prem)//start full constructor
+                double prem)
+//start full constructor
     throws PolicyException
   {
     try
@@ -62,13 +68,15 @@ public abstract class Policy implements BookValue//Start Policy class
   {
     if(own.length() == 7 && Integer.parseInt(own)>10000){ polOwner = own;}
        else
-         {throw new PolicyException("DATA VALIDATION: String must be greater than 10000");}
+         {
+         throw new PolicyException("DATA VALIDATION: String must be greater than 10000");
+       }
        
-  }
+  }//end setPolOwner
   public final void setPolInsured(String insd)
   {
     polInsured = insd;
-  }
+  }//end setPolInsured
   public final void setPolNumber(String nbr)
     throws PolicyException
   {
@@ -76,16 +84,19 @@ public abstract class Policy implements BookValue//Start Policy class
     {polNumber = nbr;}
     else
     {
-      throw new PolicyException("DATA VALIDATION: Use a regular expression for this validation");}
-  }
+      throw new PolicyException("DATA VALIDATION: Use a regular expression for this validation");
+    }
+  }//end setPolNumber
   
   public final void setPolPremium(double prem)
     throws PolicyException
   {
     if(prem > 0) {polPremium = prem;}
        else
-         {throw new PolicyException("DATA VALIDATION: The value offered for must be greater than 0");}
-  }
+       {
+         throw new PolicyException("DATA VALIDATION: The value offered for must be greater than 0");
+       }
+  }//end setPolPremium
   //end set methods
   
   /*
@@ -96,20 +107,20 @@ public abstract class Policy implements BookValue//Start Policy class
   public final String getPolOwner()
   {
     return polOwner;
-  }
+  }//end getPolOwner
   public final String getPolInsured()
   {
     return polInsured;
-  }
+  }//end getPolInsured
   public final String getPolNumber()
   {
     return polNumber;
-  }
+  }//end getPolNumber
  
   public final double getPolPremium()
   {
     return polPremium;
-  }
+  }//end getPolPremium
   //end get methods
   
  

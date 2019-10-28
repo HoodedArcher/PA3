@@ -71,7 +71,7 @@ public class HomeOwners extends Policy
   public final void setHomePropAddress(String addr)
   {
     homePropAddress = addr;
-  }//END setHomePropAddress
+  }//end setHomePropAddress
   
   public final void setHomePropType(int type)
     throws PolicyException
@@ -86,7 +86,7 @@ public class HomeOwners extends Policy
     throw new PolicyException("DATA VALIDATION: Only values 1-4 (inclusive) are acceptable"+
                               ",and other value offered should be replaced with a value of 1");
     }
-  }//END setHomePropType
+  }//end setHomePropType
   public final void setHomeStructure(int struct)
     throws PolicyException
   {
@@ -100,7 +100,7 @@ public class HomeOwners extends Policy
         throw new PolicyException("DATA VALIDATION: The value offered must be greater than 50 and less than 5000 (inclusive)");
       }
   
-  }//END setHomeStructure
+  }//end setHomeStructure
   public final void setHomeContents(int goods)
     throws PolicyException
   {
@@ -132,7 +132,7 @@ public class HomeOwners extends Policy
   public final void setUmbrella(boolean umbr)
   {
     umbrella = umbr;
-  }//END setUmbrella
+  }//end setUmbrella
 //end set methods
   
   /*
@@ -141,15 +141,15 @@ public class HomeOwners extends Policy
   public final String getHomePropAddress()
   {
     return homePropAddress;
-  }//END getHomePropAddress
+  }//end getHomePropAddress
   public final int getHomePropType()
   {
     return homePropType;
-  }//END getHomePropType
+  }//end getHomePropType
   public final int getHomeStructure()
   {
     return homeStructure;
-  }//END getHomeStructure
+  }//end getHomeStructure
   public final int getHomeContents()
   {
     return homeContents;
@@ -157,11 +157,11 @@ public class HomeOwners extends Policy
   public final double getHomeDeductible()
   {
     return homeDeductible;
-  }//END getHomeDeductible
+  }//end getHomeDeductible
   public final boolean getUmbrella()
   {
     return umbrella;
-  }//END getUmbrella
+  }//end getUmbrella
 //end get methods
   
   public final double getDeductibleInDollars()//method that calculates the dollar value of the deductible
@@ -175,11 +175,12 @@ public class HomeOwners extends Policy
   public double calcExposure()
   {
     return (getHomeStructure() + getHomeContents()) * 1000;
-  }
+  }//end calcExposure
+  
   public double calcCurrentValue()
   {
     return getPolPremium() - (calcExposure() * EXPOSURE_RATE);
-  }
+  }//end calCurrentValue
   
   public String toString()
   {
@@ -201,8 +202,8 @@ public class HomeOwners extends Policy
       str += "This policy is not part of an Umbrella contract.";
     }
     return str;                     
-  }//END toString
-}//END class
+  }//end toString
+}//end class
 
 
 
